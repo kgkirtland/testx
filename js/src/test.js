@@ -14,4 +14,6 @@ var main = (function() {
     }
 })();
 
+main.add(3,6);
+
 module.exports = main;
