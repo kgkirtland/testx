@@ -25,3 +25,19 @@ describe('Add test', function() {
 
   });
 });
+
+const resultData = "testxxx";
+
+describe('Api Test', function() {
+  it('get msg', function(done) { 
+    
+    spyOn(m.RoadsApi, "getMsg").and.returnValue(Promise.resolve(resultData));
+
+    m.helloWorld().then(result => {      
+      let expected = "Hello, Ken";
+      let actual = result;      
+      expect(expected).toEqual(actual);
+      done();
+    });    
+  });
+});
