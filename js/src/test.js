@@ -3,13 +3,11 @@ exports.add = function add(x, y)
     return x + y;
 };
 
-exports.helloWorld = function helloWorld() {    
-    const api = new RoadsApi();
-
+exports.helloWorld = function helloWorld(api) {    
     return api.getMsg();
 };
 
-export class RoadsApi {
+exports.RoadsApi = class RoadsApi {   
     getMsg() {
         return new Promise(resolve => {
             setTimeout(() => {            
@@ -19,6 +17,3 @@ export class RoadsApi {
     }
 }
 
-this.helloWorld();
-
-exports = RoadsApi;

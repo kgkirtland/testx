@@ -1,4 +1,5 @@
 var m = require('../src/test');
+var {RoadsApi} = require('../src/test');
 
 describe('Add test', function() {
   it('2 + 3 = 5', function() {
@@ -29,12 +30,13 @@ describe('Add test', function() {
 const resultData = "testxxx";
 
 describe('Api Test', function() {
-  it('get msg', function(done) { 
-    
-    spyOn(m.RoadsApi, "getMsg").and.returnValue(Promise.resolve(resultData));
+  it('get msg', function(done) {   
+    const api = new m.RoadsApi();
 
-    m.helloWorld().then(result => {      
-      let expected = "Hello, Ken";
+    spyOn(api, "getMsg").and.returnValue(Promise.resolve(resultData));
+
+    m.helloWorld(api).then(result => {      
+      let expected = resultData;
       let actual = result;      
       expect(expected).toEqual(actual);
       done();
